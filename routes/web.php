@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+DB::listen(function ($query) {
+    dump($query->sql);
+});
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,5 +32,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/books', [BookController::class, 'index'])->middleware('auth')->name('books.index');
+Route::post('/book/store', [BookController::class, 'store'])->middleware('auth')->name('book.store');
+Route::delete('/book/{book}', [BookController::class, 'destroy'])->middleware('auth')->name('book.destroy');
 
 require __DIR__.'/auth.php';

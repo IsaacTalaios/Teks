@@ -49,9 +49,14 @@
 `composer require --dev laravel-lang/common`
 `php artisan lang:add eu`
 
-- Artisan
-- Rutas
-- Controladores
-- Modelos
-- Eloquent
-- Midelwares
+### Artisan commands
+- View routes
+`php artisan route:list`
+- Migrate 
+`php artisan migrate`
+- Rollback migration
+`php artisan migrate:rollback [--step=n]`
+- Create model with controller
+`php artisan make:model ModelName -mrc`
+- Create resource controller
+`php arstisan make:controller ControllerName -r`
