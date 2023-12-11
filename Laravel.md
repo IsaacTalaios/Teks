@@ -40,6 +40,15 @@
     > https://laragon.org/download/  [click, click, click...]
 
 
+### Packages
+- ** Breeze [Login] **
+`composer require laravel/breeze --dev`
+`php artisan breeze:install` 
+- ** Laravel lang **
+    > https://laravel-lang.com/
+`composer require --dev laravel-lang/common`
+`php artisan lang:add eu`
+
 - Artisan
 - Rutas
 - Controladores
